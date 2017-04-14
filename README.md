@@ -226,23 +226,23 @@
 CI 参考: https://jhipster.github.io/setting-up-ci/
 
 #### 参考
-[Jhipster Document]     : http://www.jhipster.cc/
-[JHipster]              : https://jhipster.github.io
-[JHipster Development]  : https://jhipster.github.io/development/
-[Docker-Compose]        : https://jhipster.github.io/docker-compose
-[JHipster Production]   : https://jhipster.github.io/production/
-[Running tests page]    : https://jhipster.github.io/running-tests/
-[Continuous Integration]: https://jhipster.github.io/setting-up-ci/
+- [Jhipster Document]     : http://www.jhipster.cc/
+- [JHipster]              : https://jhipster.github.io
+- [JHipster Development]  : https://jhipster.github.io/development/
+- [Docker-Compose]        : https://jhipster.github.io/docker-compose
+- [JHipster Production]   : https://jhipster.github.io/production/
+- [Running tests page]    : https://jhipster.github.io/running-tests/
+- [Continuous Integration]: https://jhipster.github.io/setting-up-ci/
 
-[Node.js]        : https://nodejs.org/
-[Yarn]           : https://yarnpkg.org/
-[Webpack]        : https://webpack.github.io/
-[Angular CLI]    : https://cli.angular.io/
-[BrowserSync]    : http://www.browsersync.io/
+- [Node.js]        : https://nodejs.org/
+- [Yarn]           : https://yarnpkg.org/
+- [Webpack]        : https://webpack.github.io/
+- [Angular CLI]    : https://cli.angular.io/
+- [BrowserSync]    : http://www.browsersync.io/
 
-[Gatling]        : http://gatling.io/
-[Karma]          : http://karma-runner.github.io/
-[Jasmine]        : http://jasmine.github.io/2.0/introduction.html
-[Protractor]     : https://angular.github.io/protractor/
-[Leaflet]        : http://leafletjs.com/
-[DefinitelyTyped]: http://definitelytyped.org/
+- [Gatling]        : http://gatling.io/
+- [Karma]          : http://karma-runner.github.io/
+- [Jasmine]        : http://jasmine.github.io/2.0/introduction.html
+- [Protractor]     : https://angular.github.io/protractor/
+- [Leaflet]        : http://leafletjs.com/
+- [DefinitelyTyped]: http://definitelytyped.org/
