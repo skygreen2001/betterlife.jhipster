@@ -56,9 +56,7 @@
 
     ```
     > mkdir jhipster && cd jhipster
-    > npm install -g yo
-    > npm install generator-jhipster
-    > yo jhipster
+    > yarn global add yo && yarn global add generator-jhipster && yo jhipster
     ```
 
     [说明]
@@ -70,6 +68,9 @@
       ```
       > sudo mkdir /usr/local/elasticsearch2/ && sudo chmod -R 0777 /usr/local/elasticsearch2/
       ```
+
+  - 新建数据库
+    - 在Mysql数据库里新建数据库: bb
 
   - 运行示例
     - 初始化环境
