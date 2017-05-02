@@ -1,0 +1,19 @@
+version: '2'
+services:
+    bb-app:
+        image: bb
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://bb-mysql:3306/bb?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=bb-elasticsearch:9300
+        ports:
+            - 8080:8080
+    bb-mysql:
+        extends:
+            file: mysql.yml
+            service: bb-mysql
+    bb-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: bb-elasticsearch
