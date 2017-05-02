@@ -46,16 +46,10 @@
 
 ### 学习官方示例
   - [安装yarn] (https://yarnpkg.com/zh-Hans/docs/install)
-  - 安装jhipster生成器
+  - 安装jhipster生成器 | 安装YEOMAN | 初始化jhipster工程
 
     ```
-    > yarn global add generator-jhipster
-    ```
-
-  - 安装YEOMAN | 初始化jhipster工程
-
-    ```
-    > mkdir jhipster && cd jhipster
+    > mkdir bb && cd bb
     > yarn global add yo && yarn global add generator-jhipster && yo jhipster
     ```
 
