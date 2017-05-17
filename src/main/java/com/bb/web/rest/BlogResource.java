@@ -32,7 +32,7 @@ public class BlogResource {
     private final Logger log = LoggerFactory.getLogger(BlogResource.class);
 
     private static final String ENTITY_NAME = "blog";
-        
+
     private final BlogRepository blogRepository;
 
     private final BlogSearchRepository blogSearchRepository;
@@ -95,7 +95,8 @@ public class BlogResource {
     @Timed
     public List<Blog> getAllBlogs() {
         log.debug("REST request to get all Blogs");
-        List<Blog> blogs = blogRepository.findAll();
+
+        List<Blog> blogs = blogRepository.findByUserIsCurrentUser();
         return blogs;
     }
 
@@ -132,7 +133,7 @@ public class BlogResource {
      * SEARCH  /_search/blogs?query=:query : search for the blog corresponding
      * to the query.
      *
-     * @param query the query of the blog search 
+     * @param query the query of the blog search
      * @return the result of the search
      */
     @GetMapping("/_search/blogs")
