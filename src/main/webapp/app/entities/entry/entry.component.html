@@ -41,7 +41,7 @@
             <tr *ngFor="let entry of entries ;trackBy: trackId">
                 <td><a [routerLink]="['../entry', entry.id ]">{{entry.id}}</a></td>
                 <td>{{entry.title}}</td>
-                <td>{{entry.content}}</td>
+                <td [innerHTML]="entry.content"></td>
                 <td>{{entry.date | date:'medium'}}</td>
                 <td>
                     <div *ngIf="entry.blog">
@@ -75,5 +75,31 @@
             </tr>
             </tbody>
         </table>
+    </div>
+
+    <div class="table-responsive" *ngIf="entries">
+        <div infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <div *ngFor="let entry of entries; trackBy: trackId">
+                <h2>{{entry.title}}</h2>
+                <small>Posted on {{entry.date | date: 'short'}} by {{entry.blog.user.login}}</small>
+                <div [innerHTML]="entry.content"></div>
+                <div class="btn-group mb-2 mt-1">
+                    <button type="submit"
+                            [routerLink]="['/', { outlets: { popup: 'entry/'+ entry.id + '/edit'} }]"
+                            replaceUrl="true"
+                            class="btn btn-primary btn-sm">
+                        <span class="fa fa-pencil"></span>
+                        <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                    </button>
+                    <button type="submit"
+                            [routerLink]="['/', { outlets: { popup: 'entry/'+ entry.id + '/delete'} }]"
+                            replaceUrl="true"
+                            class="btn btn-danger btn-sm">
+                        <span class="fa fa-remove"></span>
+                        <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,6 +1,8 @@
 package com.bb.repository;
 
 import com.bb.domain.Entry;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.data.jpa.repository.*;
@@ -13,11 +15,12 @@ import java.util.List;
 @SuppressWarnings("unused")
 @Repository
 public interface EntryRepository extends JpaRepository<Entry,Long> {
-    
+
     @Query("select distinct entry from Entry entry left join fetch entry.tags")
     List<Entry> findAllWithEagerRelationships();
 
     @Query("select entry from Entry entry left join fetch entry.tags where entry.id =:id")
     Entry findOneWithEagerRelationships(@Param("id") Long id);
-    
+
+    Page<Entry> findByBlogUserLoginOrderByDateDesc(String currentUserLogin, Pageable pageable);
 }
