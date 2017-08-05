@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
-import { EventManager , JhiLanguageService , DataUtils } from 'ng-jhipster';
+import { JhiEventManager , JhiDataUtils } from 'ng-jhipster';
 
 import { Entry } from './entry.model';
 import { EntryService } from './entry.service';
@@ -13,28 +13,26 @@ import { EntryService } from './entry.service';
 export class EntryDetailComponent implements OnInit, OnDestroy {
 
     entry: Entry;
-    private subscription: any;
+    private subscription: Subscription;
     private eventSubscriber: Subscription;
 
     constructor(
-        private eventManager: EventManager,
-        private jhiLanguageService: JhiLanguageService,
-        private dataUtils: DataUtils,
+        private eventManager: JhiEventManager,
+        private dataUtils: JhiDataUtils,
         private entryService: EntryService,
         private route: ActivatedRoute
     ) {
-        this.jhiLanguageService.setLocations(['entry']);
     }
 
     ngOnInit() {
-        this.subscription = this.route.params.subscribe(params => {
+        this.subscription = this.route.params.subscribe((params) => {
             this.load(params['id']);
         });
         this.registerChangeInEntries();
     }
 
-    load (id) {
-        this.entryService.find(id).subscribe(entry => {
+    load(id) {
+        this.entryService.find(id).subscribe((entry) => {
             this.entry = entry;
         });
     }
@@ -55,7 +53,9 @@ export class EntryDetailComponent implements OnInit, OnDestroy {
     }
 
     registerChangeInEntries() {
-        this.eventSubscriber = this.eventManager.subscribe('entryListModification', response => this.load(this.entry.id));
+        this.eventSubscriber = this.eventManager.subscribe(
+            'entryListModification',
+            (response) => this.load(this.entry.id)
+        );
     }
-
 }

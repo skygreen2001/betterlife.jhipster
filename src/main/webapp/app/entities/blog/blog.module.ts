@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 
 import { BbSharedModule } from '../../shared';
 import { BbAdminModule } from '../../admin/admin.module';
-
 import {
     BlogService,
     BlogPopupService,
@@ -17,7 +16,7 @@ import {
     blogPopupRoute,
 } from './';
 
-let ENTITY_STATES = [
+const ENTITY_STATES = [
     ...blogRoute,
     ...blogPopupRoute,
 ];

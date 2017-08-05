@@ -1,7 +1,9 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { BbTrackerService } from './../shared/tracker/tracker.service';
 
 import { BbSharedModule } from '../shared';
+/* jhipster-needle-add-admin-module-import - JHipster will add admin modules imports here */
 
 import {
     adminState,
@@ -23,17 +25,18 @@ import {
     BbConfigurationService,
     BbHealthService,
     BbMetricsService,
+    BbTrackerComponent,
     LogsService,
     UserResolvePagingParams,
     UserResolve,
     UserModalService
 } from './';
 
-
 @NgModule({
     imports: [
         BbSharedModule,
-        RouterModule.forRoot(adminState, { useHash: true })
+        RouterModule.forRoot(adminState, { useHash: true }),
+        /* jhipster-needle-add-admin-module - JHipster will add admin modules here */
     ],
     declarations: [
         AuditsComponent,
@@ -48,6 +51,7 @@ import {
         BbHealthCheckComponent,
         BbHealthModalComponent,
         BbDocsComponent,
+        BbTrackerComponent,
         BbMetricsMonitoringComponent,
         BbMetricsMonitoringModalComponent
     ],
@@ -63,6 +67,7 @@ import {
         BbHealthService,
         BbMetricsService,
         LogsService,
+        BbTrackerService,
         UserResolvePagingParams,
         UserResolve,
         UserModalService

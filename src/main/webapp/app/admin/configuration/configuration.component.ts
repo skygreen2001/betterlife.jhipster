@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { JhiLanguageService } from 'ng-jhipster';
 
 import { BbConfigurationService } from './configuration.service';
 
@@ -16,10 +15,8 @@ export class BbConfigurationComponent implements OnInit {
     reverse: boolean;
 
     constructor(
-        private jhiLanguageService: JhiLanguageService,
         private configurationService: BbConfigurationService
     ) {
-        this.jhiLanguageService.setLocations(['configuration']);
         this.configKeys = [];
         this.filter = '';
         this.orderProp = 'prefix';
@@ -34,7 +31,7 @@ export class BbConfigurationComponent implements OnInit {
         this.configurationService.get().subscribe((configuration) => {
             this.configuration = configuration;
 
-            for (let config of configuration) {
+            for (const config of configuration) {
                 if (config.properties !== undefined) {
                     this.configKeys.push(Object.keys(config.properties));
                 }

@@ -3,40 +3,51 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Tag } from './tag.model';
 import { TagService } from './tag.service';
+
 @Injectable()
 export class TagPopupService {
-    private isOpen = false;
-    constructor (
+    private ngbModalRef: NgbModalRef;
+
+    constructor(
         private modalService: NgbModal,
         private router: Router,
         private tagService: TagService
 
-    ) {}
+    ) {
+        this.ngbModalRef = null;
+    }
 
-    open (component: Component, id?: number | any): NgbModalRef {
-        if (this.isOpen) {
-            return;
-        }
-        this.isOpen = true;
+    open(component: Component, id?: number | any): Promise<NgbModalRef> {
+        return new Promise<NgbModalRef>((resolve, reject) => {
+            const isOpen = this.ngbModalRef !== null;
+            if (isOpen) {
+                resolve(this.ngbModalRef);
+            }
 
-        if (id) {
-            this.tagService.find(id).subscribe(tag => {
-                this.tagModalRef(component, tag);
-            });
-        } else {
-            return this.tagModalRef(component, new Tag());
-        }
+            if (id) {
+                this.tagService.find(id).subscribe((tag) => {
+                    this.ngbModalRef = this.tagModalRef(component, tag);
+                    resolve(this.ngbModalRef);
+                });
+            } else {
+                // setTimeout used as a workaround for getting ExpressionChangedAfterItHasBeenCheckedError
+                setTimeout(() => {
+                    this.ngbModalRef = this.tagModalRef(component, new Tag());
+                    resolve(this.ngbModalRef);
+                }, 0);
+            }
+        });
     }
 
     tagModalRef(component: Component, tag: Tag): NgbModalRef {
-        let modalRef = this.modalService.open(component, { size: 'lg', backdrop: 'static'});
+        const modalRef = this.modalService.open(component, { size: 'lg', backdrop: 'static'});
         modalRef.componentInstance.tag = tag;
-        modalRef.result.then(result => {
+        modalRef.result.then((result) => {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true });
-            this.isOpen = false;
+            this.ngbModalRef = null;
         }, (reason) => {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true });
-            this.isOpen = false;
+            this.ngbModalRef = null;
         });
         return modalRef;
     }

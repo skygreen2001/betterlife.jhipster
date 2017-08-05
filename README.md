@@ -45,12 +45,13 @@
 ## 新手入门
 
 ### 学习官方示例
-  - [安装yarn] (https://yarnpkg.com/zh-Hans/docs/install)
+  - [安装yarn](https://yarnpkg.com/zh-Hans/docs/install)
   - 安装jhipster生成器 | 安装YEOMAN | 初始化jhipster工程
 
     ```
     > mkdir bb && cd bb
-    > yarn global add yo && yarn global add generator-jhipster && yo jhipster
+    > sudo yarn global add yo && sudo yarn global add generator-jhipster
+    > sudo npm install generator-jhipster && sudo yo jhipster
     ```
 
     [说明]
@@ -98,12 +99,17 @@
   ```
 
   - 确保正常运行
-  ```  
+  ```
   java -jar target/\*.war
   ```
   - 更多信息, 参考:[JHipster Production](https://jhipster.github.io/production/)
 
 ## 深入开发
+
+### 升级 jHipster¬
+  ```
+  > yarn global upgrade generator-jhipster
+  ```
 
 ###  Angular-cli
 
@@ -174,14 +180,22 @@
   ```
 
 ### 客户端测试
+  - 单元测试
+    - 单元测试使用[Karma][]，并且使用[Jasmine][]编写。
+    - 测试文件放置在路径: [src/test/javascript/](src/test/javascript/)
+    - 运行测试
+      ```
+      > yarn test
+      ```
 
-  - 单元测试使用[Jasmine]写的[Karma]运行.
-  - 测试文件放置在路径: [src/test/javascript/](src/test/javascript/)
-  - 运行测试
-
-  ```
-  > yarn test
-  ```
+  - 端到端测试
+      - UI 端到端(end-to-end)测试使用[Protractor][], 它建在WebDriverJS之上。
+      - 它们放置在路径: [src/test/javascript/e2e](src/test/javascript/e2e)
+      - 运行测试
+      ```
+      > ./mvnw spring-boot:run
+      > yarn run e2e
+      ```
 
 ### 其它测试
 
@@ -222,6 +236,7 @@ CI 参考: https://jhipster.github.io/setting-up-ci/
 
 ## 参考
   - [Jhipster Document]     : http://www.jhipster.cc/
+  - [JHipster 4 Demo]       : https://github.com/mraible/jhipster4-demo
   - [JHipster]              : https://jhipster.github.io
   - [JHipster Development]  : https://jhipster.github.io/development/
   - [JHipster Production]   : https://jhipster.github.io/production/

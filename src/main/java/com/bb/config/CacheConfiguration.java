@@ -40,7 +40,6 @@ public class CacheConfiguration {
             cm.createCache(com.bb.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.bb.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.bb.domain.User.class.getName() + ".authorities", jcacheConfiguration);
-            cm.createCache(com.bb.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
             cm.createCache(com.bb.domain.Blog.class.getName(), jcacheConfiguration);
             cm.createCache(com.bb.domain.Entry.class.getName(), jcacheConfiguration);
             cm.createCache(com.bb.domain.Entry.class.getName() + ".tags", jcacheConfiguration);

@@ -1,12 +1,10 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
-import { CookieService } from 'angular2-cookie/services/cookies.service';
 import {
     BbSharedLibsModule,
     BbSharedCommonModule,
     CSRFService,
-    AuthService,
     AuthServerProvider,
     AccountService,
     UserService,
@@ -14,9 +12,8 @@ import {
     LoginService,
     LoginModalService,
     Principal,
+    BbTrackerService,
     HasAnyAuthorityDirective,
-    BbSocialComponent,
-    SocialService,
     BbLoginModalComponent
 } from './';
 
@@ -26,28 +23,24 @@ import {
         BbSharedCommonModule
     ],
     declarations: [
-        BbSocialComponent,
         BbLoginModalComponent,
         HasAnyAuthorityDirective
     ],
     providers: [
-        CookieService,
         LoginService,
         LoginModalService,
         AccountService,
         StateStorageService,
         Principal,
         CSRFService,
+        BbTrackerService,
         AuthServerProvider,
-        SocialService,
-        AuthService,
         UserService,
         DatePipe
     ],
     entryComponents: [BbLoginModalComponent],
     exports: [
         BbSharedCommonModule,
-        BbSocialComponent,
         BbLoginModalComponent,
         HasAnyAuthorityDirective,
         DatePipe

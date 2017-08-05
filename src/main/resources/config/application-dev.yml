@@ -28,7 +28,7 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://localhost:3306/bb?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: root
-        password:
+        password: itaskTour2006
         hikari:
             data-source-properties:
                 cachePrepStmts: true
@@ -51,8 +51,8 @@ spring:
             cluster-nodes:
             properties:
                 path:
-                  logs: target/elasticsearch/log
-                  data: target/elasticsearch/data
+                    logs: target/elasticsearch/log
+                    data: target/elasticsearch/data
     mail:
         host: localhost
         port: 25

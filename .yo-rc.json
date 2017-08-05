@@ -4,7 +4,7 @@
       "packageName": "com.bb",
       "nativeLanguage": "zh-cn"
     },
-    "jhipsterVersion": "4.2.0",
+    "jhipsterVersion": "4.6.2",
     "baseName": "bb",
     "packageName": "com.bb",
     "packageFolder": "com/bb",
@@ -12,7 +12,7 @@
     "authenticationType": "jwt",
     "hibernateCache": "ehcache",
     "clusteredHttpSession": false,
-    "websocket": false,
+    "websocket": "spring-websocket",
     "databaseType": "sql",
     "devDatabaseType": "mysql",
     "prodDatabaseType": "mysql",
@@ -20,14 +20,16 @@
     "messageBroker": false,
     "serviceDiscoveryType": false,
     "buildTool": "maven",
-    "enableSocialSignIn": true,
+    "enableSocialSignIn": false,
     "jwtSecretKey": "570f6e884b5aaf77432db699129ca6891f62b9a0",
-    "clientFramework": "angular2",
+    "clientFramework": "angularX",
     "useSass": false,
     "clientPackageManager": "yarn",
     "applicationType": "monolith",
     "testFrameworks": [
-      "gatling"
+      "gatling",
+      "cucumber",
+      "protractor"
     ],
     "jhiPrefix": "bb",
     "enableTranslation": true,

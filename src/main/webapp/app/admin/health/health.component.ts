@@ -1,24 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiLanguageService } from 'ng-jhipster';
 
 import { BbHealthService } from './health.service';
 import { BbHealthModalComponent } from './health-modal.component';
 
 @Component({
     selector: 'bb-health',
-    templateUrl: './health.component.html',
+    templateUrl: './health.component.html'
 })
 export class BbHealthCheckComponent implements OnInit {
     healthData: any;
     updatingHealth: boolean;
 
     constructor(
-        private jhiLanguageService: JhiLanguageService,
         private modalService: NgbModal,
         private healthService: BbHealthService
     ) {
-        this.jhiLanguageService.setLocations(['health']);
 
     }
 
@@ -41,10 +38,10 @@ export class BbHealthCheckComponent implements OnInit {
     refresh() {
         this.updatingHealth = true;
 
-        this.healthService.checkHealth().subscribe(health => {
+        this.healthService.checkHealth().subscribe((health) => {
             this.healthData = this.healthService.transformHealthData(health);
             this.updatingHealth = false;
-        }, error => {
+        }, (error) => {
             if (error.status === 503) {
                 this.healthData = this.healthService.transformHealthData(error.json());
                 this.updatingHealth = false;

@@ -1,17 +1,16 @@
-import { Component, OnInit, AfterViewInit, Renderer, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, Renderer, ElementRef } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-import { JhiLanguageService, EventManager } from 'ng-jhipster';
+import { JhiEventManager } from 'ng-jhipster';
 
-import { LoginService } from '../login/login.service';
+import { LoginService } from './login.service';
 import { StateStorageService } from '../auth/state-storage.service';
-import { SocialService } from '../social/social.service';
 
 @Component({
     selector: 'bb-login-modal',
     templateUrl: './login.component.html'
 })
-export class BbLoginModalComponent implements OnInit, AfterViewInit {
+export class BbLoginModalComponent implements AfterViewInit {
     authenticationError: boolean;
     password: string;
     rememberMe: boolean;
@@ -19,28 +18,22 @@ export class BbLoginModalComponent implements OnInit, AfterViewInit {
     credentials: any;
 
     constructor(
-        private eventManager: EventManager,
-        private languageService: JhiLanguageService,
+        private eventManager: JhiEventManager,
         private loginService: LoginService,
         private stateStorageService: StateStorageService,
         private elementRef: ElementRef,
         private renderer: Renderer,
-        private socialService: SocialService,
         private router: Router,
         public activeModal: NgbActiveModal
     ) {
         this.credentials = {};
     }
 
-    ngOnInit() {
-        this.languageService.addLocation('login');
-    }
-
     ngAfterViewInit() {
         this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#username'), 'focus', []);
     }
 
-    cancel () {
+    cancel() {
         this.credentials = {
             username: null,
             password: null,
@@ -50,7 +43,7 @@ export class BbLoginModalComponent implements OnInit, AfterViewInit {
         this.activeModal.dismiss('cancel');
     }
 
-    login () {
+    login() {
         this.loginService.login({
             username: this.username,
             password: this.password,
@@ -70,7 +63,7 @@ export class BbLoginModalComponent implements OnInit, AfterViewInit {
 
             // // previousState was set in the authExpiredInterceptor before being redirected to login modal.
             // // since login is succesful, go to stored previousState and clear previousState
-            let redirect = this.stateStorageService.getUrl();
+            const redirect = this.stateStorageService.getUrl();
             if (redirect) {
                 this.router.navigate([redirect]);
             }
@@ -79,12 +72,12 @@ export class BbLoginModalComponent implements OnInit, AfterViewInit {
         });
     }
 
-    register () {
+    register() {
         this.activeModal.dismiss('to state register');
         this.router.navigate(['/register']);
     }
 
-    requestResetPassword () {
+    requestResetPassword() {
         this.activeModal.dismiss('to state requestReset');
         this.router.navigate(['/reset', 'request']);
     }

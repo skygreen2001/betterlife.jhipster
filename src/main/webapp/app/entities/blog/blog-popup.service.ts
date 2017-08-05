@@ -3,40 +3,51 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Blog } from './blog.model';
 import { BlogService } from './blog.service';
+
 @Injectable()
 export class BlogPopupService {
-    private isOpen = false;
-    constructor (
+    private ngbModalRef: NgbModalRef;
+
+    constructor(
         private modalService: NgbModal,
         private router: Router,
         private blogService: BlogService
 
-    ) {}
+    ) {
+        this.ngbModalRef = null;
+    }
 
-    open (component: Component, id?: number | any): NgbModalRef {
-        if (this.isOpen) {
-            return;
-        }
-        this.isOpen = true;
+    open(component: Component, id?: number | any): Promise<NgbModalRef> {
+        return new Promise<NgbModalRef>((resolve, reject) => {
+            const isOpen = this.ngbModalRef !== null;
+            if (isOpen) {
+                resolve(this.ngbModalRef);
+            }
 
-        if (id) {
-            this.blogService.find(id).subscribe(blog => {
-                this.blogModalRef(component, blog);
-            });
-        } else {
-            return this.blogModalRef(component, new Blog());
-        }
+            if (id) {
+                this.blogService.find(id).subscribe((blog) => {
+                    this.ngbModalRef = this.blogModalRef(component, blog);
+                    resolve(this.ngbModalRef);
+                });
+            } else {
+                // setTimeout used as a workaround for getting ExpressionChangedAfterItHasBeenCheckedError
+                setTimeout(() => {
+                    this.ngbModalRef = this.blogModalRef(component, new Blog());
+                    resolve(this.ngbModalRef);
+                }, 0);
+            }
+        });
     }
 
     blogModalRef(component: Component, blog: Blog): NgbModalRef {
-        let modalRef = this.modalService.open(component, { size: 'lg', backdrop: 'static'});
+        const modalRef = this.modalService.open(component, { size: 'lg', backdrop: 'static'});
         modalRef.componentInstance.blog = blog;
-        modalRef.result.then(result => {
+        modalRef.result.then((result) => {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true });
-            this.isOpen = false;
+            this.ngbModalRef = null;
         }, (reason) => {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true });
-            this.isOpen = false;
+            this.ngbModalRef = null;
         });
         return modalRef;
     }

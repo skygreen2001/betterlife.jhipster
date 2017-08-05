@@ -34,10 +34,7 @@ public class Entry implements Serializable {
     @NotNull
     @Lob
     @Column(name = "content", nullable = false)
-    private byte[] content;
-
-    @Column(name = "content_content_type", nullable = false)
-    private String contentContentType;
+    private String content;
 
     @NotNull
     @Column(name = "jhi_date", nullable = false)
@@ -74,30 +71,17 @@ public class Entry implements Serializable {
         this.title = title;
     }
 
-    public byte[] getContent() {
+    public String getContent() {
         return content;
     }
 
-    public Entry content(byte[] content) {
+    public Entry content(String content) {
         this.content = content;
         return this;
     }
 
-    public void setContent(byte[] content) {
+    public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getContentContentType() {
-        return contentContentType;
-    }
-
-    public Entry contentContentType(String contentContentType) {
-        this.contentContentType = contentContentType;
-        return this;
-    }
-
-    public void setContentContentType(String contentContentType) {
-        this.contentContentType = contentContentType;
     }
 
     public ZonedDateTime getDate() {
@@ -160,25 +144,24 @@ public class Entry implements Serializable {
             return false;
         }
         Entry entry = (Entry) o;
-        if (entry.id == null || id == null) {
+        if (entry.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(id, entry.id);
+        return Objects.equals(getId(), entry.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hashCode(getId());
     }
 
     @Override
     public String toString() {
         return "Entry{" +
-            "id=" + id +
-            ", title='" + title + "'" +
-            ", content='" + content + "'" +
-            ", contentContentType='" + contentContentType + "'" +
-            ", date='" + date + "'" +
-            '}';
+            "id=" + getId() +
+            ", title='" + getTitle() + "'" +
+            ", content='" + getContent() + "'" +
+            ", date='" + getDate() + "'" +
+            "}";
     }
 }

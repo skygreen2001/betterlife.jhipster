@@ -7,22 +7,23 @@ import {
     healthRoute,
     logsRoute,
     metricsRoute,
+    trackerRoute,
     userMgmtRoute,
     userDialogRoute
 } from './';
 
 import { UserRouteAccessService } from '../shared';
 
-let ADMIN_ROUTES = [
+const ADMIN_ROUTES = [
     auditsRoute,
     configurationRoute,
     docsRoute,
     healthRoute,
     logsRoute,
+    trackerRoute,
     ...userMgmtRoute,
     metricsRoute
 ];
-
 
 export const adminState: Routes = [{
     path: '',

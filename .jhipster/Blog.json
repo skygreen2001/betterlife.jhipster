@@ -28,7 +28,7 @@
             "fieldValidateRulesMinlength": 2
         }
     ],
-    "changelogDate": "20170502095637",
+    "changelogDate": "20170805054107",
     "entityTableName": "blog",
     "dto": "no",
     "pagination": "no",

@@ -10,12 +10,14 @@ import { BbAdminModule } from './admin/admin.module';
 import { BbAccountModule } from './account/account.module';
 import { BbEntityModule } from './entities/entity.module';
 
-import { LayoutRoutingModule } from './layouts';
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
+// jhipster-needle-angular-add-module-import JHipster will add new module here
+
 import {
     BbMainComponent,
+    LayoutRoutingModule,
     NavbarComponent,
     FooterComponent,
     ProfileService,
@@ -23,7 +25,6 @@ import {
     ActiveMenuDirective,
     ErrorComponent
 } from './layouts';
-
 
 @NgModule({
     imports: [
@@ -34,7 +35,8 @@ import {
         BbHomeModule,
         BbAdminModule,
         BbAccountModule,
-        BbEntityModule
+        BbEntityModule,
+        // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
         BbMainComponent,

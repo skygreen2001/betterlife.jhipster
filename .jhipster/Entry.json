@@ -27,6 +27,7 @@
         {
             "fieldName": "content",
             "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
             "fieldValidateRules": [
                 "required"
             ]
@@ -39,7 +40,7 @@
             ]
         }
     ],
-    "changelogDate": "20170502095638",
+    "changelogDate": "20170805054108",
     "entityTableName": "entry",
     "dto": "no",
     "pagination": "infinite-scroll",
