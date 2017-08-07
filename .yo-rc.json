@@ -37,6 +37,7 @@
     "languages": [
       "zh-cn",
       "en"
-    ]
+    ],
+    "herokuAppName": "bb-skygreen-2001"
   }
 }
