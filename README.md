@@ -237,9 +237,11 @@ CI 参考: https://jhipster.github.io/setting-up-ci/
 ## 参考
   - [Jhipster Document]     : http://www.jhipster.cc/
   - [JHipster 4 Demo]       : https://github.com/mraible/jhipster4-demo
+  - [The JHipster Mini-Book]: http://www.jhipster-book.com/
   - [JHipster]              : https://jhipster.github.io
   - [JHipster Development]  : https://jhipster.github.io/development/
   - [JHipster Production]   : https://jhipster.github.io/production/
+  - [Microservices-Spring]  : https://spring.io/blog/2015/07/14/microservices-with-spring 
   - [Docker-Compose]        : https://jhipster.github.io/docker-compose
   - [Running tests page]    : https://jhipster.github.io/running-tests/
   - [Continuous Integration]: https://jhipster.github.io/setting-up-ci/
