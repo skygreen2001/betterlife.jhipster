@@ -106,7 +106,7 @@
 
 ## 深入开发
 
-### 升级 jHipster¬
+### 升级 jHipster
   ```
   > yarn global upgrade generator-jhipster
   ```
@@ -228,6 +228,20 @@
     ```
     - 更多信息, 参考:[Docker-Compose](https://jhipster.github.io/docker-compose)
 
+## 使用Heroku
+  - [安装Heroku CLI Toolbelt](https://devcenter.heroku.com/articles/heroku-cli)
+  - [创建Heroku账户](https://signup.heroku.com/)
+  - 登录Heroku
+    ```
+    > heroku login
+    ```
+  - 重新部署到Heroku
+    ```
+    > heroku war:deploy target/bb-1.0.0.war --app bb-skygreen-2001 
+    > jhipster heroku 
+    ```
+   [注] bb-skygreen-2001 是heroku里本应用的名称
+
 ## CI
 
 工程要配置 CI, 运行sub-generator: ci-cd (`yo jhipster:ci-cd`).
@@ -243,6 +257,7 @@ CI 参考: https://jhipster.github.io/setting-up-ci/
   - [JHipster Production]   : https://jhipster.github.io/production/
   - [Microservices-Spring]  : https://spring.io/blog/2015/07/14/microservices-with-spring 
   - [Docker-Compose]        : https://jhipster.github.io/docker-compose
+  - [Deploying to Heroku]   : https://jhipster.github.io/heroku/
   - [Running tests page]    : https://jhipster.github.io/running-tests/
   - [Continuous Integration]: https://jhipster.github.io/setting-up-ci/
   - [Node.js]        : https://nodejs.org/
