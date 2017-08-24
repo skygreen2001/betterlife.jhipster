@@ -235,18 +235,23 @@
     ```
     > heroku login
     ```
+  - Heroku 默认支持Postgresql, 需切换Mysql -> Postgresql
+    - pom.xml
+    - src/main/resources/config/application-dev.yml
+    - src/main/resources/config/liquibase/changelog/00000000000000_initial_schema.xml
+    - src/main/java/com/bb/domain/PersistentAuditEvent.java
+
   - 重新部署到Heroku
     ```
-    > heroku war:deploy target/bb-1.0.0.war --app bb-skygreen-2001 
-    > jhipster heroku 
+    > sudo ./mvnw package -DskipTests=true -B -Pprod
+    > heroku war:deploy target/bb-1.0.0.war --app bb-skygreen-2001 [或者运行 > jhipster heroku]
+    > heroku logs --tail
     ```
    [注] bb-skygreen-2001 是heroku里本应用的名称
 
 ## CI
-
-工程要配置 CI, 运行sub-generator: ci-cd (`yo jhipster:ci-cd`).
-
-CI 参考: https://jhipster.github.io/setting-up-ci/
+  - 工程要配置 CI, 运行sub-generator: ci-cd (`yo jhipster:ci-cd`).
+  - CI 参考: https://jhipster.github.io/setting-up-ci/
 
 ## 参考
   - [Jhipster Document]     : http://www.jhipster.cc/
