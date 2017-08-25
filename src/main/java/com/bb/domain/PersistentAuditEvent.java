@@ -16,13 +16,14 @@ import java.util.Map;
 public class PersistentAuditEvent implements Serializable {
 
     @Id
-    /*    mysql    */
-    //    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    /*    mysql start   */
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+    /*    mysql end   */
 
-    /*  Postgresql */
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
-
+    /*  Postgresql start */
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+//    @SequenceGenerator(name = "sequenceGenerator")
+    /*  Postgresql end */
     @Column(name = "event_id")
     private Long id;
 

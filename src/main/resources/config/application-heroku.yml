@@ -22,10 +22,11 @@ eureka:
 spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-#        url: ${JDBC_DATABASE_URL}
-#        username: ${JDBC_DATABASE_USERNAME}
-#        password: ${JDBC_DATABASE_PASSWORD}
+        url: ${JDBC_DATABASE_URL}
+        username: ${JDBC_DATABASE_USERNAME}
+        password: ${JDBC_DATABASE_PASSWORD}
 
+##       MySQL start
 #        url: jdbc:mysql://localhost:3306/bb?useUnicode=true&characterEncoding=utf8&useSSL=false
 #        username: root
 #        password:
@@ -33,9 +34,12 @@ spring:
 #        url: jdbc:mysql://debug.betterlife.com:3306/bb?useUnicode=true&characterEncoding=utf8&useSSL=false
 #        username: root
 #        password:
+##       MySQL end
 
-        url: jdbc:postgresql://localhost:5432/bb
-        username: bb
-        password: bb2017
+##       PostgreSQL start
+#        url: jdbc:postgresql://localhost:5432/bb
+#        username: bb
+#        password: bb2017
+##       PostgreSQL end
         hikari:
             maximumPoolSize: 8

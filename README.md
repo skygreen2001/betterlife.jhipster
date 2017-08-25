@@ -235,13 +235,20 @@
     ```
     > heroku login
     ```
+  - [Heroku Postgres](https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java)
+    
+    ```
+    > heroku addons:create heroku-postgresql:hobby-dev [需在根路径下执行]
+    ```
   - Heroku 默认支持Postgresql, 需切换Mysql -> Postgresql
-    - pom.xml
     - src/main/resources/config/application-dev.yml
-    - src/main/resources/config/liquibase/changelog/00000000000000_initial_schema.xml
+    - src/main/resources/config/application-prod.yml
+    - src/main/resources/config/application-heroku.yml
     - src/main/java/com/bb/domain/PersistentAuditEvent.java
+    - [#可以不修改 src/main/resources/config/liquibase/changelog/00000000000000_initial_schema.xml]
+    - [#可以不修改 pom.xml]
 
-  - 重新部署到Heroku
+  - [部署到Heroku](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku)
     ```
     > sudo ./mvnw package -DskipTests=true -B -Pprod
     > heroku war:deploy target/bb-1.0.0.war --app bb-skygreen-2001 [或者运行 > jhipster heroku]
