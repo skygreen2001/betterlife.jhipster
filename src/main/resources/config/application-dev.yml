@@ -30,7 +30,7 @@ spring:
 ##       MySQL start
         url: jdbc:mysql://localhost:3306/bb?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: root
-        password: itaskTour2006
+        password:
 
 #        url: jdbc:mysql://debug.betterlife.com:3306/bb?useUnicode=true&characterEncoding=utf8&useSSL=false
 #        username: root

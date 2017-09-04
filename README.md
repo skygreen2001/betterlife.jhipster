@@ -100,7 +100,7 @@
 
   - 确保正常运行
   ```
-  java -jar target/\*.war
+  java -jar target/*.war
   ```
   - 更多信息, 参考:[JHipster Production](https://jhipster.github.io/production/)
 

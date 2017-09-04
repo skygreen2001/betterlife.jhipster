@@ -17,7 +17,7 @@ public class PersistentAuditEvent implements Serializable {
 
     @Id
     /*    mysql start   */
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     /*    mysql end   */
 
     /*  Postgresql start */

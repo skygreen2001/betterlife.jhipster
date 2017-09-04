@@ -9,8 +9,8 @@
     <property name="now" value="now()" dbms="h2"/>
 
     <!--mysql start-->
-    <!--<property name="now" value="now()" dbms="mysql"/>-->
-    <!--<property name="autoIncrement" value="true"/>-->
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
     <!--mysql end-->
 
     <!--postgresql start-->
